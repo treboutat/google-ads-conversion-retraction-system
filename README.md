@@ -81,7 +81,7 @@ Read through `SKILL.md` from top to bottom. Each step includes:
 
 ## Quick Reference
 
-- **Google Ads retraction window:** 60 days (use 55-day filter for safety buffer)
+- **Google Ads retraction window:** 60 days
 - **Upload format:** Google Click ID, Conversion Name, Conversion Time, Adjustment Type
 - **Adjustment type for retraction:** `RETRACT`
 - **Refresh cadence:** Sheet refreshes daily → Google Ads pulls daily

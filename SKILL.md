@@ -137,7 +137,7 @@ WHERE
 
 3. **The closed-loss reasons must use the exact CRM values.** If HubSpot stores it as `"Auto DQ"` (with a space) and your query says `'AutoDQ'` (no space), you'll get zero results. Pull the actual values from the CRM first.
 
-4. **Date filtering is optional but recommended.** Google Ads can only process retractions within the last 55 days (the documented limit is 60, but build in a buffer). Adding `AND conversion_time >= DATEADD(day, -55, GETDATE())` reduces the payload and avoids upload errors on old records.
+4. **Date filtering is optional but recommended.** Google Ads can only process retractions within the last 60 days. Adding `AND conversion_time >= DATEADD(day, -60, GETDATE())` reduces the payload and avoids upload errors on old records.
 
 **Validation before proceeding:**
 - Run the query and check the row count. Sanity-check it:
@@ -277,10 +277,10 @@ After everything is live, verify the system end-to-end:
 |---------|-------------|-----|
 | Upload shows 0 rows processed | Sheet is empty or has wrong headers | Check Sheet data and column names |
 | "Conversion action not found" errors | Conversion name in Sheet doesn't match Google Ads exactly | Copy-paste the name from Google Ads |
-| "GCLID not recognized" errors | Click is from a different account or older than 60 days | Filter query to last 55 days; verify account ID |
+| "GCLID not recognized" errors | Click is from a different account or older than 60 days | Filter query to last 60 days; verify account ID |
 | Upload succeeds but conversion counts unchanged | Retractions take 24-48hrs to reflect in reporting | Wait and re-check |
 | Sheet stops refreshing | Data warehouse auth expired | Re-authenticate the connector |
-| Row count keeps growing indefinitely | Query isn't date-filtered, accumulating all historical DQs | Add date filter to limit to last 55 days |
+| Row count keeps growing indefinitely | Query isn't date-filtered, accumulating all historical DQs | Add date filter to limit to last 60 days |
 
 ---
 

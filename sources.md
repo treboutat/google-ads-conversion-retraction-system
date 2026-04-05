@@ -64,7 +64,7 @@ Official documentation and reference material for conversion retraction setup.
 | `ConversionActionNotFound` | Conversion name doesn't match any action in the account | Copy-paste the exact name from Google Ads |
 | `GclidNotFound` | GCLID not recognized or from a different account | Verify GCLID is from the correct account; may be expired |
 | `ConversionAlreadyRetracted` | This specific conversion was already retracted | Safe to ignore — duplicate retraction attempts are harmless |
-| `TooOldToAdjust` | Original conversion is older than 60 days | Expected for historical records; filter query to 55 days |
+| `TooOldToAdjust` | Original conversion is older than 60 days | Expected for historical records; filter query to 60 days |
 | `InvalidConversionTime` | Timestamp format not recognized | Use `yyyy-MM-dd HH:mm:ss` format |
 | `MissingRequiredField` | A required column is empty for this row | Check for null GCLIDs or conversion times in your data source |
 
